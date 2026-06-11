@@ -1,0 +1,16 @@
+.next/
+node_modules/
+out/
+dist/
+coverage/
+
+.env
+.env.*
+!.env.example
+
+*.log
+*.tsbuildinfo
+dashboard-preview.png
+dashboard-review-776.png
+decline-chart-preview.png
+info-icons-review.png
