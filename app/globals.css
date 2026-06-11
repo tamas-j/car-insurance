@@ -348,15 +348,16 @@ select {
   align-items: center;
   gap: 5px;
   margin-top: 8px;
+  color: var(--muted-foreground);
   font-size: 12px;
   font-weight: 650;
 }
 
-.delta.positive {
+.delta-change.positive {
   color: var(--success);
 }
 
-.delta.negative {
+.delta-change.negative {
   color: var(--danger);
 }
 
@@ -628,7 +629,12 @@ select {
 .bar-fill {
   height: 100%;
   border-radius: inherit;
-  background: var(--fill-color, var(--chart-1));
+  background:
+    repeating-linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--fill-color, var(--chart-1)) 100%, white) 0 8px,
+      color-mix(in srgb, var(--fill-color, var(--chart-1)) 78%, white) 8px 14px
+    );
 }
 
 .chart-frame {
@@ -747,8 +753,29 @@ select {
   }
 
   .segment-table {
-    display: block;
-    overflow-x: auto;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  .segment-table th,
+  .segment-table td {
+    padding-right: 6px;
+    padding-left: 6px;
+    white-space: normal;
+  }
+
+  .segment-table th:first-child,
+  .segment-table td:first-child {
+    width: 42%;
+  }
+
+  .text-chart-label {
+    display: inline-block;
+    max-width: 72px;
+    white-space: normal;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.1;
   }
 }
 

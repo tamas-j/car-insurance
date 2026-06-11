@@ -15,7 +15,8 @@ const metrics = [
     label: "Form Completion",
     value: "68.4%",
     subtitle: "18,468 completed proposals",
-    delta: "+4.2pp vs prior period",
+    deltaChange: "+4.2pp",
+    deltaLabel: "vs prior period",
     tone: "positive",
     definition: "Completed forms divided by all started proposals.",
   },
@@ -23,7 +24,8 @@ const metrics = [
     label: "Quote Coverage",
     value: "74.8%",
     subtitle: "At least one quoted price",
-    delta: "-1.1pp panel appetite",
+    deltaChange: "-1.1pp",
+    deltaLabel: "panel appetite",
     tone: "negative",
     definition: "Completed proposals with at least one quoted price.",
   },
@@ -31,7 +33,8 @@ const metrics = [
     label: "Bind Rate",
     value: "29.7%",
     subtitle: "Quoted proposals purchased",
-    delta: "+2.8pp price competitiveness",
+    deltaChange: "+2.8pp",
+    deltaLabel: "price competitiveness",
     tone: "positive",
     definition: "Purchases divided by proposals that received a quote.",
   },
@@ -39,7 +42,8 @@ const metrics = [
     label: "Collection Rate",
     value: "91.6%",
     subtitle: "Successful monthly payments",
-    delta: "-0.6pp early tenure drag",
+    deltaChange: "-0.6pp",
+    deltaLabel: "early tenure drag",
     tone: "negative",
     definition: "Successful payments divided by payment attempts.",
   },
@@ -47,7 +51,8 @@ const metrics = [
     label: "Realised Premium",
     value: "£1.42m",
     subtitle: "£348 ARPP",
-    delta: "+9.5% collected premium",
+    deltaChange: "+9.5%",
+    deltaLabel: "collected premium",
     tone: "positive",
     definition: "Premium actually collected from successful payments.",
   },
@@ -174,7 +179,12 @@ function MetricCard({ metric }: { metric: (typeof metrics)[number] }) {
       <p className="metric-label">{metric.label}</p>
       <p className="metric-value">{metric.value}</p>
       <p className="metric-subtitle">{metric.subtitle}</p>
-      <p className={`delta ${metric.tone}`}>{metric.delta}</p>
+      <p className="delta">
+        <span className={`delta-change ${metric.tone}`}>
+          {metric.deltaChange}
+        </span>
+        <span>{metric.deltaLabel}</span>
+      </p>
     </article>
   );
 }
